@@ -1,0 +1,2 @@
+# laravel_v10_template
+Laravel10のDockerComposeテンプレート
