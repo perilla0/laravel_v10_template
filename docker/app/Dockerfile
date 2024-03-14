@@ -26,15 +26,19 @@ RUN apt-get update \
 RUN git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis
 
 # https://github.com/mailhog/mhsendmail
-RUN curl -sSL https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64 -o mhsendmail \
-    && chmod +x mhsendmail \
-    && mv mhsendmail /usr/local/bin/mhsendmail
+# RUN curl -sSL https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64 -o mhsendmail \
+#     && chmod +x mhsendmail \
+#     && mv mhsendmail /usr/local/bin/mhsendmail
 
 # https://github.com/axllent/mailpit/wiki/Building-from-source
-RUN git clone https://github.com/axllent/mailpit.git /mailpit \
-    && cd /mailpit \
-    && go build -ldflags "-s -w" \
-    && mv mailpit /usr/local/bin/mailpit
+# https://mailpit.axllent.org/docs/install/source/
+# https://github.com/axllent/mailpit/commit/25f8a47c73472f05b59a34605d8537884b444b65
+# Goバージョン1.20以上が必要に変更。aptでは1.19がインストールされる)
+# 16.30 /root/go/pkg/mod/modernc.org/libc@v1.43.1/pthread_musl.go:11:2: package slices is not in GOROOT (/usr/lib/go-1.19/src/slices)
+# RUN git clone https://github.com/axllent/mailpit.git /mailpit \
+#     && cd /mailpit \
+#     && go build -ldflags "-s -w" \
+#     && mv mailpit /usr/local/bin/mailpit
 
 RUN pecl install \
         memcached \
