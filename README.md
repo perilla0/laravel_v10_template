@@ -3,6 +3,7 @@
   - [1.2. スターターキットのインストール](#12-スターターキットのインストール)
   - [1.3. コンテナ立ち上げ](#13-コンテナ立ち上げ)
   - [1.4. すべてのコンテナを削除](#14-すべてのコンテナを削除)
+- [2. Qiita記事](#2-qiita記事)
 
 # 1. このプロジェクトについて
 
@@ -76,3 +77,8 @@ docker compose exec -u $(id -u):$(id -g) app npm run build
 cd script
 ./down_clear.sh
 ```
+
+# 2. Qiita記事
+
+[Laravel10] Laravel Sailを使用せず、DockerComposeを自前で用意する
+https://qiita.com/perilla/items/c84a9788a5cc2009f984
